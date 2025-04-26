@@ -1,7 +1,21 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter} from "react-router-dom";
-import routes from "../routes";
+import Home from "../components/Home";
+import NavBar from "../components/NavBar";
+import Movie from "../components/Movie";
+import Actors from "../components/Actors";
+import Directors from "../components/Directors";
+import NotFound from "../components/NotFound";
+
+const routes = [
+  { path: "/", element: <Home /> },
+  { path: "/actors", element: <Actors /> },
+  { path: "/directors", element: <Directors /> },
+  { path: "/movie/:id", element: <Movie /> },
+  { path: "*", element: <NotFound /> }
+];
+
 
 const router = createMemoryRouter(routes)
 
